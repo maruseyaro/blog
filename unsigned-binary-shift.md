@@ -1,3 +1,5 @@
+# Unsigned right shift
+
 Today I came across this piece of code in [React's scheduler](https://github.com/facebook/react/blob/master/packages/scheduler/src/SchedulerMinHeap.js#L59):
 
 ```js
@@ -7,7 +9,7 @@ const halfLength = length >>> 1;
 What looks like a git merge gone wrong, is actually an operator called [Unsigned right shift](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Unsigned_right_shift).
 It shifts a given number by n bits to the right. But why would you want to shift `length` by 1 bit, and why would you call the result `halfLength`?
 
-Digging into it a little bit more I found an [wikipedia article about the Logical shift](https://en.wikipedia.org/wiki/Logical_shift#:~:text=Shifting%20right%20by%20n%20bits), which says that:
+Digging into it a little bit more I found an [wikipedia article about the Logical shift](https://en.wikipedia.org/wiki/Logical_shift#:~:text=Shifting%20right%20by%20n%20bits), which states that:
 
 > Shifting right by n bits on an unsigned binary number has the effect of dividing it by 2n (rounding towards 0).
 
